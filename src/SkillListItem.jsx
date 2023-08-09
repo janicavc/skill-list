@@ -1,10 +1,8 @@
 import React from 'react'
 
-export default function SkillListItem() {
+export default function SkillListItem({ skill }) {
   return (
-    <>
-      <li>Skill List Item</li>
-    </>
+    <li className='SkillListItem'>{skill}</li>
   )
 }
 
