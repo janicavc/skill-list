@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import React from 'react'
 import './App.css'
-import SkillList from './SkillList'
-import NewSkillForm from './NewSkillForm'
+import SkillList from './SkillList';
+import NewSkillForm from './NewSkillForm';
 
-const skills = [
+const initialSkills = [
   { name: "HTML", level: 5 },
   { name: "CSS", level: 3 },
   { name: "JavaScript", level: 4 },
@@ -11,12 +12,19 @@ const skills = [
 ];
 
 function App() {
+  const [skills, setSkills] = useState(initialSkills);
+
+  function addSkill(skill) {
+    setSkills([...skills, skill]);
+  }
+  
+  
   return (
     <>
       <h1>React Dev Skills</h1>
-      <SkillList/>
+      <SkillList skills={skills}/>
       <hr />
-      <NewSkillForm/>
+      <NewSkillForm addSkill={addSkill}/>
     </>
   )
 }
